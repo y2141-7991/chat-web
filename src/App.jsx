@@ -66,27 +66,29 @@ function App() {
           setCurrentRoom={setCurrentRoom}
         />
         <div className="h-screen p-4 bg-ctp-crust flex flex-col flex-grow justify-end">
-          <div className="bg-ctp-base rounded-t-lg flex-grow">
-            <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-ctp-mantle px-2 sm:px-6 lg:hidden">
-              <button
-                type="button"
-                className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
-                onClick={() => setSidebarOpen(true)}
-              >
-                <span className="sr-only">Open sidebar</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
-              </button>
-              <div className="flex-1 text-sm font-semibold leading-6 text-white">
-                <h1 className="text-2xl text-white font-bold py-4">
-                  {currentRoom}
-                </h1>
+          <div className="bg-ctp-base p-4 rounded-lg mb-4 h-full overflow-y-scroll">
+            <div className="bg-ctp-base rounded-t-lg flex-grow">
+              <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-ctp-mantle px-2 sm:px-6 lg:hidden">
+                <button
+                  type="button"
+                  className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
+                  onClick={() => setSidebarOpen(true)}
+                >
+                  <span className="sr-only">Open sidebar</span>
+                  <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
+                </button>
+                <div className="flex-1 text-sm font-semibold leading-6 text-white">
+                  <h1 className="text-2xl text-white font-bold py-4">
+                    {currentRoom}
+                  </h1>
+                </div>
               </div>
-            </div>
 
-            <h1 className="hidden lg:block text-2xl text-center text-white font-bold my-4">
-              {currentRoom}
-            </h1>
-            <RoomMsgsList messages={messages}/>
+              <h1 className="hidden lg:block text-2xl text-center text-white font-bold my-4">
+                {currentRoom}
+              </h1>
+              <RoomMsgsList messages={messages}/>
+            </div>
           </div>
           <MsgSubmitBox socket={socket} currentRoom={currentRoom}/>
         </div>
